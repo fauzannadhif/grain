@@ -22,18 +22,16 @@ Below are some examples of the available GraphQl queries to use as reference:
     endDate
     sections {
       id
+      items {
+        id
+        modifierGroups {
+          id
+          modifiers {
+            id
+          }
+        }
+      }
     }
-    createdAt
-    UpdatedAt
-  }
-}
-
-{
-  sections {
-    id
-    identifier
-    label
-    description
     createdAt
     updatedAt
   }
