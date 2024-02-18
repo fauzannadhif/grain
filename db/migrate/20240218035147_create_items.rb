@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[7.1]
   def change
     create_table :items do |t|
-      t.integer :type
+      t.integer :item_type
       t.string :identifier
       t.string :label
       t.string :description

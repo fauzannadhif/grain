@@ -3,7 +3,7 @@
 module Types
   class ItemType < Types::BaseObject
     field :id, ID, null: false
-    field :type, Integer
+    field :item_type, String
     field :identifier, String
     field :label, String
     field :description, String
