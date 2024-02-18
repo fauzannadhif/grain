@@ -3,13 +3,16 @@
 ## Setup
 
 * Create, migrate, and seed db
-Run `rails db:create db:migrate db:seed`
+
+  Run `rails db:create db:migrate db:seed`
 
 * Runs rails server
-Run `rails s`
+
+  Run `rails s`
 
 *  Open up GraphiQL
-Open up http://localhost:3000/graphiql in your browser.
+
+  Open up http://localhost:3000/graphiql in your browser.
 
 ## Development Process
 
