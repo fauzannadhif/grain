@@ -119,10 +119,10 @@ Get All Menus:
             item {
               id
               itemType
-        			identifier
-        			label
-        			description
-        			price
+              identifier
+              label
+              description
+              price
             }
             priceOverride
           }
@@ -131,6 +131,16 @@ Get All Menus:
     }
     createdAt
     updatedAt
+  }
+}
+```
+
+Get Menu by ID:
+
+```
+{
+  menu(id: 1) {
+    id
   }
 }
 ```
