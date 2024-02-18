@@ -61,3 +61,40 @@ MENU_SECTION.each do |menu_section|
     display_order: menu_section[:display_order],
   )
 end
+
+ITEMS = [
+  {
+    item_type: :product,
+    identifier: 'I0',
+    label: 'Pepperoni Pizza',
+    description: 'classic pepperoni pizzas',
+    price: 20.0
+  }
+]
+
+ITEMS.each do |item|
+  record = Item.create!(
+    item_type: item[:item_type],
+    identifier: item[:identifier],
+    label: item[:label],
+    description: item[:description],
+    price: item[:price]
+  )
+  puts "Item #{record[:identifier]} is successfully inserted"
+end
+
+SECTION_ITEM = [
+  {
+    section: Section.find_by(identifier: 'S0'),
+    item: Item.find_by(identifier: 'I0'),
+    display_order: 0
+  }
+]
+
+SECTION_ITEM.each do |section_item|
+  record = SectionItem.create!(
+    section: section_item[:section],
+    item: section_item[:item],
+    display_order: section_item[:display_order],
+  )
+end
