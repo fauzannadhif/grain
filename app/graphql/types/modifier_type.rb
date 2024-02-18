@@ -8,6 +8,7 @@ module Types
     field :display_order, Integer
     field :default_quantity, Integer
     field :price_override, Float
+    field :item, Types::ItemType, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
