@@ -41,7 +41,7 @@ SECTIONS.each do |section|
   record = Section.create!(
     identifier: section[:identifier],
     label: section[:label],
-    description: section[:state],
+    description: section[:description],
   )
   puts "Section #{record[:identifier]} is successfully inserted"
 end
@@ -69,7 +69,28 @@ ITEMS = [
     label: 'Pepperoni Pizza',
     description: 'classic pepperoni pizzas',
     price: 20.0
-  }
+  },
+  {
+    item_type: :component,
+    identifier: 'I1',
+    label: 'Extra Cheese',
+    description: 'extra cheese topping',
+    price: 3.0
+  },
+  {
+    item_type: :component,
+    identifier: 'I2',
+    label: 'Extra Pepperoni',
+    description: 'extra pepperoni topping',
+    price: 5.5
+  },
+  {
+    item_type: :component,
+    identifier: 'I3',
+    label: 'Extra Mushroom',
+    description: 'extra mushroom topping',
+    price: 2.5
+  },
 ]
 
 ITEMS.each do |item|
@@ -96,5 +117,72 @@ SECTION_ITEM.each do |section_item|
     section: section_item[:section],
     item: section_item[:item],
     display_order: section_item[:display_order],
+  )
+end
+
+MODIFIER_GROUPS = [
+  {
+    identifier: 'MG0',
+    label: 'Extra Topping',
+    selection_required_min: 0,
+    selection_required_max: 3
+  }
+]
+
+MODIFIER_GROUPS.each do |modifier_group|
+  record = ModifierGroup.create!(
+    identifier: modifier_group[:identifier],
+    label: modifier_group[:label],
+    selection_required_min: modifier_group[:selection_required_min],
+    selection_required_max: modifier_group[:selection_required_max]
+  )
+  puts "Modifier Group #{record[:identifier]} is successfully inserted"
+end
+
+ITEM_MODIFIER_GROUPS = [
+  {
+    item: Item.find_by(identifier: 'I0'),
+    modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
+  }
+]
+
+ITEM_MODIFIER_GROUPS.each do |item_modifier_group|
+  record = ItemModifierGroup.create!(
+    item: item_modifier_group[:item],
+    modifier_group: item_modifier_group[:modifier_group],
+  )
+end
+
+MODIFIERS = [
+  {
+    item: Item.find_by(identifier: 'I1'),
+    modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
+    display_order: 0,
+    default_quantity: 0,
+    price_override: 3.0
+  },
+  {
+    item: Item.find_by(identifier: 'I2'),
+    modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
+    display_order: 0,
+    default_quantity: 0,
+    price_override: 5.5
+  },
+  {
+    item: Item.find_by(identifier: 'I3'),
+    modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
+    display_order: 0,
+    default_quantity: 0,
+    price_override: 2.5
+  }
+]
+
+MODIFIERS.each do |modifier|
+  record = Modifier.create!(
+    item: modifier[:item],
+    modifier_group: modifier[:modifier_group],
+    display_order: modifier[:display_order],
+    default_quantity: modifier[:default_quantity],
+    price_override: modifier[:price_override]
   )
 end
