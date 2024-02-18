@@ -60,7 +60,7 @@ MENU_SECTION = [
   {
     menu: Menu.find_by(identifier: 'M0'),
     section: Section.find_by(identifier: 'S1'),
-    display_order: 0
+    display_order: 1
   }
 ]
 
@@ -108,6 +108,13 @@ ITEMS = [
     description: 'Oven-backed chicken wings',
     price: 10.2
   },
+  {
+    item_type: :product,
+    identifier: 'I5',
+    label: 'Onion Rings',
+    description: 'Breaded onion rings',
+    price: 5.3
+  }
 ]
 
 ITEMS.each do |item|
@@ -131,6 +138,11 @@ SECTION_ITEM = [
     section: Section.find_by(identifier: 'S1'),
     item: Item.find_by(identifier: 'I4'),
     display_order: 0
+  },
+  {
+    section: Section.find_by(identifier: 'S1'),
+    item: Item.find_by(identifier: 'I5'),
+    display_order: 1
   }
 ]
 
@@ -186,14 +198,14 @@ MODIFIERS = [
   {
     item: Item.find_by(identifier: 'I2'),
     modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
-    display_order: 0,
+    display_order: 1,
     default_quantity: 0,
     price_override: 5.5
   },
   {
     item: Item.find_by(identifier: 'I3'),
     modifier_group: ModifierGroup.find_by(identifier: 'MG0'),
-    display_order: 0,
+    display_order: 2,
     default_quantity: 0,
     price_override: 2.5
   }
