@@ -34,6 +34,11 @@ SECTIONS = [
     identifier: 'S0',
     label: 'Classic Pizzas',
     description: 'classic flavored pizzas'
+  },
+  {
+    identifier: 'S1',
+    label: 'Sides',
+    description: 'side dishes'
   }
 ]
 
@@ -50,6 +55,11 @@ MENU_SECTION = [
   {
     menu: Menu.find_by(identifier: 'M0'),
     section: Section.find_by(identifier: 'S0'),
+    display_order: 0
+  },
+  {
+    menu: Menu.find_by(identifier: 'M0'),
+    section: Section.find_by(identifier: 'S1'),
     display_order: 0
   }
 ]
@@ -91,6 +101,13 @@ ITEMS = [
     description: 'extra mushroom topping',
     price: 2.5
   },
+  {
+    item_type: :product,
+    identifier: 'I4',
+    label: 'Chicken Wings',
+    description: 'Oven-backed chicken wings',
+    price: 10.2
+  },
 ]
 
 ITEMS.each do |item|
@@ -108,6 +125,11 @@ SECTION_ITEM = [
   {
     section: Section.find_by(identifier: 'S0'),
     item: Item.find_by(identifier: 'I0'),
+    display_order: 0
+  },
+  {
+    section: Section.find_by(identifier: 'S1'),
+    item: Item.find_by(identifier: 'I4'),
     display_order: 0
   }
 ]
