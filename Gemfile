@@ -68,3 +68,5 @@ end
 
 gem "graphql", "~> 2.2"
 gem "graphiql-rails", group: :development
+
+gem "rack-cors", "~> 2.0"
